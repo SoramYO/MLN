@@ -1,0 +1,135 @@
+Dưới đây là kế hoạch website và khung nội dung đáp ứng đủ tiêu chí.
+
+# 1) Mục tiêu sản phẩm
+
+* Trả lời câu hỏi trung tâm, dựa trên lý thuyết M-L và dữ liệu chính thống.
+* Trình bày bằng website tương tác. Không dùng slide.
+* Thu hút ≥80% lớp tham gia qua quiz, bình chọn, bản đồ.
+* Có trang “AI Usage” minh bạch, đối chiếu nguồn.
+
+# 2) Cấu trúc website (IA)
+
+* `/` Trang chủ: câu hỏi nêu vấn đề + lộ trình duyệt nội dung.
+* `/theory` Lý thuyết và nguyên tắc chính sách dân tộc.
+* `/vietnam-ethnic` Đặc điểm dân tộc VN + bản đồ, số liệu.
+* `/policy` Mốc chính sách trọng yếu + tóm tắt tác động.
+* `/analysis` Đối chiếu thực tiễn: “chiếm dụng” hay chênh lệch phát triển.
+* `/cases` Case-study tỉnh/vùng + tranh luận có dẫn chứng.
+* `/engage` Quiz, poll, tình huống lập luận nhanh.
+* `/ai-usage` Minh bạch AI, kiểm chứng, cam kết liêm chính.
+* Footer: nguồn dữ liệu, giấy phép, liên hệ.
+
+# 3) Tính năng tương tác (đạt mục 2–3–5 điểm)
+
+* Bản đồ Leaflet: lớp “tỉ lệ DTTS theo tỉnh”, tooltips, filter vùng.
+* Timeline chính sách: 1951→2003 NQ-24→2019 NQ-88→2021 QĐ-1719.
+* Quiz 6–8 câu trắc nghiệm kiến thức.
+* Poll trực tiếp: “Bạn cho rằng có ‘chiếm dụng’?” trước và sau trình bày.
+* Thẻ “debate cards”: mỗi thẻ là một luận điểm + dữ kiện nguồn.
+* Nút “fact-check”: mở modal trích Điều 5 Hiến pháp và số liệu GSO.
+* Bộ “scenario”: nhóm chọn giải pháp chính sách theo ràng buộc ngân sách, xem kết quả.
+
+# 4) Nội dung cốt lõi (ngắn gọn, có nguồn)
+
+## 4.1 Lý thuyết trong thời kỳ quá độ lên CNXH
+
+* Nguyên tắc: bình đẳng, đoàn kết, tôn trọng, giúp nhau cùng phát triển; nghiêm cấm kỳ thị và chia rẽ. Quyền dùng tiếng nói, chữ viết, giữ gìn bản sắc; Nhà nước tạo điều kiện phát triển toàn diện. Trích Điều 5 Hiến pháp 2013. ([An ninh nhân dân][1])
+* Quan điểm kế thừa đường lối Đảng: các dân tộc bình đẳng, đoàn kết, tương trợ; giải quyết vấn đề dân tộc là nhiệm vụ chiến lược; nhất quán từ Chính cương 1951 đến nay. ([hvctcand.bocongan.gov.vn][2])
+
+## 4.2 Đặc điểm dân tộc Việt Nam
+
+* Việt Nam có 54 dân tộc; dân tộc Kinh \~85,3% dân số theo TĐT 2019. ([UNFPA Vietnam][3])
+* 6 dân tộc thiểu số >1 triệu: Tày, Thái, Mường, Mông, Khmer, Nùng; nhiều dân tộc <5 nghìn người; DTTS chủ yếu ở Trung du miền núi phía Bắc và Tây Nguyên. ([UNFPA Vietnam][3])
+
+## 4.3 Chính sách dân tộc
+
+* Nghị quyết 24-NQ/TW (2003): mục tiêu xóa đói giảm nghèo, nâng cao đời sống, củng cố đại đoàn kết. ([Tư liệu Văn kiện][4])
+* Nghị quyết 88/2019/QH14: phê duyệt Đề án tổng thể phát triển KT-XH vùng DTTS & miền núi 2021–2030. ([Chính phủ][5])
+* Quyết định 1719/QĐ-TTg (2021): Chương trình MTQG vùng DTTS\&MN giai đoạn 2021–2030, giai đoạn I 2021–2025. ([Văn Bản Chính Phủ][6])
+
+## 4.4 Đối chiếu thực tiễn
+
+* Chênh lệch nghèo đa chiều và thu nhập giữa Kinh và nhiều nhóm DTTS vẫn rõ. WB/UNDP ghi nhận tỷ lệ nghèo của DTTS cao hơn trung bình quốc gia và chiếm tỷ trọng lớn trong người nghèo, dù có cải thiện 2010–2020. ([Ngân Hàng Thế Giới][7])
+* Diễn giải học thuật: sự khác biệt bắt nguồn từ địa lý, hạ tầng, vốn con người, ngôn ngữ, tiếp cận thị trường; không đồng nghĩa với “chính sách chiếm dụng”, vì khung pháp lý cấm kỳ thị và chủ trương hỗ trợ phát triển đồng đều. ([An ninh nhân dân][1])
+* Kết luận học thuật đề xuất: khái niệm “chiếm dụng” không phản ánh đầy đủ cơ chế pháp lý và chủ trương; bức tranh phù hợp hơn là “chênh lệch phát triển lịch sử-cấu trúc” mà chính sách 88/2019 và 1719/2021 đang nhằm thu hẹp. ([Chính phủ][5])
+
+# 5) Kịch bản thuyết trình (15 phút)
+
+* 2’ Mở đầu: poll 1 trên website.
+* 4’ Lý thuyết + Điều 5 Hiến pháp (modal).
+* 4’ Bản đồ + timeline chính sách.
+* 3’ Case Điện Biên vs Đồng Nai: so sánh cấu trúc KT-XH và tiếp cận dịch vụ (dẫn WB/UNDP). ([Ngân Hàng Thế Giới][7])
+* 1’ Poll 2 + thay đổi quan điểm.
+* 1’ Kết luận + ý nghĩa giữ vững đoàn kết dân tộc.
+
+# 6) Liên kết tiêu chí ↔ tính năng
+
+* Chiều sâu học thuật: trang `/theory`, `/policy`, `/analysis` có trích dẫn Điều 5, NQ-24, NQ-88, QĐ-1719, WB/UNDP. ([An ninh nhân dân][1])
+* Sáng tạo, hình thức: web SPA, bản đồ, timeline, debate cards.
+* Tương tác: quiz, 2 lần poll, scenario.
+* AI có trách nhiệm: trang `/ai-usage` nêu công cụ, prompt, phần biên tập, đối chiếu nguồn; AI chỉ hỗ trợ sơ đồ, tạo câu hỏi; nội dung cuối do nhóm duyệt.
+* Cập nhật & thực tiễn: số liệu TĐT 2019, chính sách 2019–2025, báo cáo WB/UNDP 2022+. ([UNFPA Vietnam][3])
+
+# 7) Kỹ thuật triển khai
+
+* Stack: Next.js + Tailwind + Leaflet + ECharts.
+* Dữ liệu: CSV/GeoJSON “tỉ lệ DTTS theo tỉnh” (trích từ TĐT 2019), bảng mốc chính sách (NQ-24, 88, QĐ-1719), trích dẫn WB/UNDP. ([UNFPA Vietnam][3])
+* Module:
+
+  * `components/MapEthnic.tsx`
+  * `components/PolicyTimeline.tsx`
+  * `components/Poll.tsx`, `components/Quiz.tsx`
+  * `components/DebateCard.tsx`
+* Đo tương tác: đếm click, thời gian xem, số câu trả lời quiz, tỷ lệ tham gia poll.
+
+# 8) Phân công nhanh
+
+* FE-1: Map + Timeline.
+* FE-2: Quiz + Poll + Debate cards.
+* RE/Content: Trích luật, nghị quyết, viết lập luận học thuật, đối chiếu WB/UNDP.
+* QA: Kiểm tra dẫn nguồn, trang AI-Usage, kiểm thử tương tác.
+
+# 9) Trang “AI Usage” (chuẩn 4 điểm)
+
+* Mục lục: Công cụ, mục đích, prompt chính, output, phần nhóm chỉnh sửa; bảng đối chiếu nguồn chính thống; cam kết liêm chính; phần sáng tạo (AI hỗ trợ tạo quiz, sơ đồ).
+* Liên kết tới từng trang nơi có dữ liệu trích dẫn.
+
+# 10) Nội dung mẫu ngắn cho mỗi trang
+
+**/theory**
+
+* Box “Điều 5 Hiến pháp 2013” + trích yếu nội dung. ([An ninh nhân dân][1])
+
+**/vietnam-ethnic**
+
+* Infobox: “Kinh 85,3% (2019)”. Danh sách 6 dân tộc >1 triệu. Bản đồ phân bố DTTS. ([UNFPA Vietnam][3])
+
+**/policy**
+
+* Thẻ NQ-24 (2003) → mục tiêu; NQ-88 (2019) → đề án tổng thể; QĐ-1719 (2021) → chương trình MTQG. ([Tư liệu Văn kiện][4])
+
+**/analysis**
+
+* Lập luận 3 bước: khung pháp lý cấm kỳ thị; thực trạng chênh lệch nghèo DTTS; kết luận “không phải chiếm dụng” mà là khác biệt cấu trúc cần chính sách mục tiêu. ([An ninh nhân dân][1])
+
+**/engage**
+
+* Quiz 6 câu; 2 poll; 3 “debate cards” cho ba góc nhìn.
+
+# 11) Nguồn chính thống gợi ý nhúng
+
+* TĐT 2019: tỷ lệ Kinh 85,3%, cơ cấu các dân tộc. ([UNFPA Vietnam][3])
+* Hiến pháp 2013, Điều 5. ([An ninh nhân dân][1])
+* NQ-24-NQ/TW (2003). ([Tư liệu Văn kiện][4])
+* NQ-88/2019/QH14; QĐ-1719/2021. ([Chính phủ][5])
+* WB/UNDP về nghèo DTTS. ([Ngân Hàng Thế Giới][7])
+
+Cần sample dữ liệu CSV/GeoJSON, câu hỏi quiz, hay skeleton Next.js? Tôi có thể cung cấp ngay.
+
+[1]: https://dhannd.bocongan.gov.vn/hienphap2013?utm_source=chatgpt.com "Hiến pháp nước Cộng hòa Xã hội chủ nghĩa Việt Nam năm ..."
+[2]: https://hvctcand.bocongan.gov.vn/chong-dien-bien-hoa-binh/bai-1-quan-diem-duong-loi-cua-dang-cong-san-viet-nam-ve-van-de-dan-toc-6109?utm_source=chatgpt.com "Bài 1: Quan điểm, đường lối của Đảng Cộng sản Việt Nam về ..."
+[3]: https://vietnam.unfpa.org/vi/news/k%E1%BA%BFt-qu%E1%BA%A3-t%E1%BB%95ng-%C4%91i%E1%BB%81u-tra-d%C3%A2n-s%E1%BB%91-v%C3%A0-nh%C3%A0-%E1%BB%9F-n%C4%83m-2019?utm_source=chatgpt.com "KẾT QUẢ TỔNG ĐIỀU TRA DÂN SỐ VÀ NHÀ Ở NĂM 2019"
+[4]: https://tulieuvankien.dangcongsan.vn/van-kien-tu-lieu-ve-dang/hoi-nghi-bch-trung-uong/khoa-ix/nghi-quyet-so-24-nqtw-ngay-1232003-hoi-nghi-lan-thu-bay-ban-chap-hanh-trung-uong-dang-khoa-ix-ve-cong-tac-dan-toc-657?utm_source=chatgpt.com "Nghị quyết số 24-NQ/TW ngày 12/3/2003, Hội nghị lần thứ ..."
+[5]: https://chinhphu.vn/default.aspx?docid=198414&pageid=27160&utm_source=chatgpt.com "Nghị quyết số 88/2019/QH14 của Quốc hội: Phê duyệt Đề ..."
+[6]: https://vanban.chinhphu.vn/?docid=204285&pageid=27160&utm_source=chatgpt.com "Quyết định số 1719/QĐ-TTg của Thủ tướng Chính phủ: Phê ..."
+[7]: https://www.worldbank.org/en/country/vietnam/publication/2022-vietnam-poverty-and-equity-assessment-report?utm_source=chatgpt.com "2022 Vietnam Poverty and Equity Assessment Report"

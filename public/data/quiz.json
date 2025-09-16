@@ -1,0 +1,98 @@
+[
+  {
+    "id": "q1",
+    "question": "“Dân tộc” nghĩa rộng và nghĩa hẹp khác nhau ở điểm nào?",
+    "choices": [
+      "Nghĩa rộng là tộc người, nghĩa hẹp là quốc gia",
+      "Nghĩa rộng là quốc gia-dân tộc; nghĩa hẹp là cộng đồng tộc người",
+      "Cả hai đều là quốc gia",
+      "Cả hai đều là tộc người"
+    ],
+    "answer": 1,
+    "explain": "Nghĩa rộng (Nation) chỉ cộng đồng quốc gia; nghĩa hẹp (Ethnie) chỉ cộng đồng tộc người."
+  },
+  {
+    "id": "q2",
+    "question": "Đặc trưng quan trọng nhất giúp gắn kết dân tộc là gì?",
+    "choices": [
+      "Văn hóa",
+      "Ngôn ngữ",
+      "Phương thức sinh hoạt kinh tế",
+      "Nhà nước"
+    ],
+    "answer": 2,
+    "explain": "Giáo trình nhấn mạnh phương thức sinh hoạt kinh tế là nền tảng gắn kết."
+  },
+  {
+    "id": "q3",
+    "question": "Ba tiêu chí nhận diện tộc người gồm những gì?",
+    "choices": [
+      "Lãnh thổ, kinh tế, nhà nước",
+      "Ngôn ngữ, văn hóa, ý thức tự giác",
+      "Văn hóa, nhà nước, lãnh thổ",
+      "Kinh tế, ngôn ngữ, nhà nước"
+    ],
+    "answer": 1,
+    "explain": "Ba tiêu chí: ngôn ngữ; văn hóa; ý thức tự giác tộc người."
+  },
+  {
+    "id": "q4",
+    "question": "Hai xu hướng khách quan trong quan hệ dân tộc theo Lênin là gì?",
+    "choices": [
+      "Tách ra độc lập và liên hiệp lại",
+      "Đồng hóa và phân rã",
+      "Liên minh kinh tế và quân sự",
+      "Toàn cầu hóa và bản địa hóa"
+    ],
+    "answer": 0,
+    "explain": "Xu hướng tách ra lập quốc gia độc lập; xu hướng liên hiệp các dân tộc."
+  },
+  {
+    "id": "q5",
+    "question": "Cương lĩnh dân tộc của Lênin gồm những điểm nào?",
+    "choices": [
+      "Bình đẳng, tự quyết, liên hiệp công nhân các dân tộc",
+      "Bình đẳng, liên minh quân sự, tự do thương mại",
+      "Tự quyết, độc tôn văn hóa, biên giới đóng",
+      "Liên hiệp, liên minh thuế quan, chủ quyền tuyệt đối"
+    ],
+    "answer": 0,
+    "explain": "Ba điểm: bình đẳng; quyền tự quyết; liên hiệp công nhân các dân tộc."
+  },
+  {
+    "id": "q6",
+    "question": "Việt Nam có mấy đặc điểm lớn về dân tộc, nêu 2 ví dụ?",
+    "choices": [
+      "4; kinh tế; nhà nước",
+      "5; di cư; công nghiệp hóa",
+      "6; cư trú xen kẽ; địa bàn chiến lược",
+      "7; đô thị hóa; xuất khẩu"
+    ],
+    "answer": 2,
+    "explain": "6 đặc điểm: chênh lệch quy mô; cư trú xen kẽ; địa bàn chiến lược; phát triển không đều; đại đoàn kết; đa dạng văn hóa."
+  },
+  {
+    "id": "q7",
+    "question": "Vì sao “cư trú xen kẽ” vừa thuận lợi vừa tiềm ẩn xung đột?",
+    "choices": [
+      "Do khác biệt sinh học",
+      "Vì thúc đẩy giao lưu nhưng dễ phát sinh mâu thuẫn",
+      "Vì tạo ra cạnh tranh kinh tế thuần túy",
+      "Vì dẫn đến đồng hóa hoàn toàn"
+    ],
+    "answer": 1,
+    "explain": "Giáo trình nêu: cư trú xen kẽ giúp giao lưu nhưng cũng dễ nảy sinh mâu thuẫn."
+  },
+  {
+    "id": "q8",
+    "question": "Mục tiêu bao trùm của chính sách dân tộc ở VN là gì?",
+    "choices": [
+      "Tập trung vào tăng trưởng GDP",
+      "Thu hẹp chênh lệch, củng cố đoàn kết, phát triển bền vững",
+      "Bảo tồn văn hóa là mục tiêu duy nhất",
+      "Di cư bắt buộc để phân bố lại dân cư"
+    ],
+    "answer": 1,
+    "explain": "Chính sách hướng tới thu hẹp chênh lệch, củng cố đoàn kết và phát triển bền vững."
+  }
+]
