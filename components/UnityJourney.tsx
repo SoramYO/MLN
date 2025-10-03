@@ -71,6 +71,9 @@ export default function UnityVillageGame() {
   const [questionIndex, setQuestionIndex] = useState(0)
   const [shuffledQuestions, setShuffledQuestions] = useState<typeof FULL_QUESTION_BANK>([]);
   const [showInstructions, setShowInstructions] = useState(false)
+  const [gameEnded, setGameEnded] = useState(false)
+  const [showAnswerFeedback, setShowAnswerFeedback] = useState(false)
+  const [answerMessage, setAnswerMessage] = useState("")
 
   useEffect(() => {
     setShuffledQuestions([...FULL_QUESTION_BANK].sort(() => Math.random() - 0.5));
@@ -92,6 +95,11 @@ export default function UnityVillageGame() {
     return shuffledQuestions[questionIndex % shuffledQuestions.length];
   }, [questionIndex, shuffledQuestions]);
 
+  // Kiểm tra xem tất cả ô đã được xây dựng chưa
+  const isGridFull = useMemo(() => {
+    return grid.every(cell => cell.buildingId !== null);
+  }, [grid]);
+
   const getCell = (r: number, c: number) => grid.find(cell => cell.row === r && cell.col === c);
 
   const markInstructionsSeen = () => {
@@ -108,7 +116,7 @@ export default function UnityVillageGame() {
       markInstructionsSeen()
     }
 
-    if (cell.buildingId || !selectedBuilding) return;
+    if (cell.buildingId || !selectedBuilding || gameEnded) return;
     if (turns <= 0) {
       setMessage("⚠️ Đã hết lượt! Hãy trả lời câu hỏi để có thêm lượt.");
       setShowQuestion(true);
@@ -150,26 +158,58 @@ export default function UnityVillageGame() {
     setScore(s => s + POINTS_PER_BUILD + (newBuildingInfo?.points || 0) + bonus)
     setMessage(`Xây dựng ${selectedBuilding.name} thành công! ${bonusMessage || ""}`);
     
-    if((INITIAL_TURNS - turns - 1) % 3 === 2 && turns > 0) {
+    // Kiểm tra xem đã xây đầy bản đồ chưa
+    const updatedGrid = grid.map(c => (c.row === cell.row && c.col === cell.col ? { ...c, buildingId: selectedBuilding.id } : c))
+    const isFull = updatedGrid.every(cell => cell.buildingId !== null);
+    
+    if (isFull && !gameEnded) {
+      setGameEnded(true);
+      setMessage(`🎉 CHIẾN THẮNG! Bạn đã xây dựng hoàn thành ngôi làng với ${score + POINTS_PER_BUILD + (newBuildingInfo?.points || 0) + bonus} điểm!`);
+    }
+    
+    if((INITIAL_TURNS - turns - 1) % 3 === 2 && turns > 0 && !isFull) {
         setShowQuestion(true);
     }
   }
   
   const answerQuestion = (isCorrect: boolean) => {
+    setShowQuestion(false);
+    
     if(isCorrect) {
         setTurns(t => t + 2);
         setResources(r => r + 200);
-        setMessage("✅ Trả lời đúng! Bạn nhận được +2 lượt và +200 vốn.");
+        setAnswerMessage("✅ Chính xác! Bạn nhận được +2 lượt và +200 vốn!");
+        setShowAnswerFeedback(true);
+        setTimeout(() => {
+          setShowAnswerFeedback(false);
+        }, 3000);
     } else {
-        setMessage("❌ Chưa đúng rồi. Cố gắng ở câu hỏi sau nhé.");
+        setAnswerMessage("❌ Chưa đúng rồi. Cố gắng ở câu hỏi sau nhé!");
+        setShowAnswerFeedback(true);
+        setTimeout(() => {
+          setShowAnswerFeedback(false);
+        }, 3000);
     }
     setQuestionIndex(i => i + 1);
-    setShowQuestion(false);
   }
 
   const dismissInstructions = () => {
     setShowInstructions(false)
     markInstructionsSeen()
+  }
+
+  const resetGame = () => {
+    setGrid(buildInitialGrid())
+    setResources(INITIAL_RESOURCES)
+    setTurns(INITIAL_TURNS)
+    setScore(0)
+    setSelectedBuilding(BUILDINGS[0])
+    setMessage("Chào mừng! Hãy xem hướng dẫn và bắt đầu xây dựng.")
+    setQuestionIndex(0)
+    setGameEnded(false)
+    setShowAnswerFeedback(false)
+    setAnswerMessage("")
+    setShuffledQuestions([...FULL_QUESTION_BANK].sort(() => Math.random() - 0.5))
   }
   
   if (!question) return <div>Đang tải game...</div>;
@@ -210,7 +250,12 @@ export default function UnityVillageGame() {
 
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-3xl font-bold text-gray-800">🏡 Ngôi Làng Đại Đoàn Kết</h2>
-        <button onClick={() => setShowInstructions(true)} className="px-3 py-1.5 text-xs bg-gray-200 text-gray-700 font-semibold rounded-md hover:bg-gray-300">? Hướng dẫn</button>
+        <div className="flex gap-2">
+          <button onClick={() => setShowInstructions(true)} className="px-3 py-1.5 text-xs bg-gray-200 text-gray-700 font-semibold rounded-md hover:bg-gray-300">? Hướng dẫn</button>
+          {gameEnded && (
+            <button onClick={resetGame} className="px-3 py-1.5 text-xs bg-green-500 text-white font-semibold rounded-md hover:bg-green-600">🔄 Chơi lại</button>
+          )}
+        </div>
       </div>
       
       <div className="grid grid-cols-3 gap-4 bg-white p-3 rounded-lg mb-4 text-center text-sm shadow">
@@ -219,7 +264,22 @@ export default function UnityVillageGame() {
         <div>⚡ Lượt: <span className={`font-bold text-lg ${turns <= 2 ? "text-red-600 animate-pulse" : "text-yellow-600"}`}>{turns}</span></div>
       </div>
       
-      {message && <div className="text-center mb-4 p-2 bg-blue-100 text-blue-800 rounded-md text-sm border border-blue-200">{message}</div>}
+      {message && (
+        <div className={`text-center mb-4 p-3 rounded-md text-sm border ${
+          gameEnded 
+            ? "bg-gradient-to-r from-yellow-100 to-orange-100 text-orange-800 border-orange-300 shadow-lg" 
+            : "bg-blue-100 text-blue-800 border-blue-200"
+        }`}>
+          {message}
+        </div>
+      )}
+
+      {/* Thông báo khi trả lời câu hỏi */}
+      {showAnswerFeedback && (
+        <div className="fixed top-4 right-4 bg-white p-4 rounded-xl shadow-2xl border-2 border-green-300 z-40 animate-fade-in">
+          <p className="text-center font-semibold text-gray-800">{answerMessage}</p>
+        </div>
+      )}
 
       <div className="flex flex-col md:flex-row gap-6">
         <div className="md:w-1/3">
@@ -252,14 +312,21 @@ export default function UnityVillageGame() {
                 <button
                     key={`${cell.row}-${cell.col}`}
                     onClick={() => handleBuild(cell)}
-                    className={`aspect-square rounded-md flex items-center justify-center transition-all duration-300 transform hover:scale-105 ${
+                    disabled={gameEnded}
+                    className={`aspect-square rounded-md flex items-center justify-center transition-all duration-300 transform ${
+                        gameEnded 
+                            ? "cursor-not-allowed opacity-75" 
+                            : "hover:scale-105"
+                    } ${
                         building
                         ? `${typeInfo?.color} text-white text-3xl shadow-lg`
-                        : "bg-green-50 hover:bg-green-200"
+                        : gameEnded 
+                            ? "bg-gray-200" 
+                            : "bg-green-50 hover:bg-green-200"
                     }`}
-                    title={building ? `${building.name} (${building.ethnicity})` : `Xây dựng (Chi phí: ${COST_PER_BUILD} vốn)`}
+                    title={building ? `${building.name} (${building.ethnicity})` : gameEnded ? "Game đã kết thúc" : `Xây dựng (Chi phí: ${COST_PER_BUILD} vốn)`}
                 >
-                    {building ? typeInfo?.icon : <span className="text-gray-400 text-xl">+</span>}
+                    {building ? typeInfo?.icon : gameEnded ? "✓" : <span className="text-gray-400 text-xl">+</span>}
                 </button>
                 )
             })}
@@ -267,7 +334,8 @@ export default function UnityVillageGame() {
         </div>
       </div>
       
-      {showQuestion && (
+      {/* Modal câu hỏi */}
+      {showQuestion && !gameEnded && (
         <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 animate-fade-in p-4">
             <div className="bg-white p-6 rounded-xl shadow-2xl w-full max-w-lg">
                 <h3 className="font-bold text-xl mb-3 text-gray-800">💡 Thử thách kiến thức!</h3>
@@ -283,6 +351,34 @@ export default function UnityVillageGame() {
                         </button>
                     ))}
                 </div>
+            </div>
+        </div>
+      )}
+
+      {/* Modal chiến thắng */}
+      {gameEnded && (
+        <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 animate-fade-in p-4" onClick={resetGame}>
+            <div className="bg-gradient-to-br from-yellow-100 to-orange-100 p-8 rounded-2xl shadow-2xl w-full max-w-md text-center border-4 border-yellow-400" onClick={e => e.stopPropagation()}>
+                <div className="text-6xl mb-4">🏆</div>
+                <h2 className="text-3xl font-bold text-gray-800 mb-4">CHIẾN THẮNG!</h2>
+                <p className="text-lg text-gray-700 mb-6">
+                    Chúc mừng! Bạn đã xây dựng hoàn thành ngôi làng đại đoàn kết với <span className="font-bold text-orange-600">{score} điểm</span>!
+                </p>
+                <div className="bg-white/50 rounded-lg p-4 mb-6">
+                    <p className="text-sm text-gray-600 mb-2">📊 Thống kê:</p>
+                    <div className="grid grid-cols-2 gap-4 text-sm">
+                        <div>Tổng điểm: <span className="font-bold text-blue-600">{score}</span></div>
+                        <div>Công trình: <span className="font-bold text-green-600">25</span></div>
+                        <div>Vốn còn lại: <span className="font-bold text-purple-600">{resources}</span></div>
+                        <div>Lượt còn: <span className="font-bold text-orange-600">{turns}</span></div>
+                    </div>
+                </div>
+                <button 
+                    onClick={resetGame}
+                    className="w-full px-6 py-3 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold rounded-lg shadow-lg hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105"
+                >
+                    🎮 Chơi lại
+                </button>
             </div>
         </div>
       )}
