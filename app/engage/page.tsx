@@ -7,6 +7,7 @@ import FactCheckModal from "@/components/FactCheckModal"
 
 const Quiz = dynamic(() => import("@/components/Quiz"), { ssr: false })
 const Poll = dynamic(() => import("@/components/Poll"), { ssr: false })
+const UnityJourney = dynamic(() => import("@/components/UnityJourney"), { ssr: false })
 
 export default function Page() {
   const [open, setOpen] = useState(false)
