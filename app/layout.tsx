@@ -18,8 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Link href="/policy" className="hover:text-blue-200 transition-colors">Quan điểm & Chính sách</Link>
             <Link href="/analysis" className="hover:text-blue-200 transition-colors">Phân tích</Link>
             <Link href="/engage" className="hover:text-blue-200 transition-colors">Tương tác</Link>
-            <Link href="/sources" className="hover:text-blue-200 transition-colors">Nguồn tài liệu</Link>
-            <Link href="/ai-usage" className="hover:text-blue-200 transition-colors text-sm">AI Usage</Link>
+            <Link href="/sources" className="hover:text-blue-200 transition-colors">Nguồn & AI</Link>
           </div>
         </nav>
         <main className="container py-6">{children}</main>
