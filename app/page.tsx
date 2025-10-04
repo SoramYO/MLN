@@ -16,9 +16,9 @@ export default function Page() {
         <div className="text-center relative">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-3xl blur-3xl"></div>
           <div className="relative z-10">
-            <h1 className="h1 floating-animation">
+            <h2 className="h2 floating-animation">
               Vấn đề dân tộc trong thời kỳ quá độ lên chủ nghĩa xã hội
-            </h1>
+            </h2>
             <div className="text-xl md:text-2xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
               Nghiên cứu về quan hệ dân tộc tại Việt Nam - Khám phá sự đa dạng và đoàn kết
             </div>
