@@ -39,7 +39,7 @@ export default function Page() {
                   <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">1</div>
                   <div>
                     <h4 className="font-semibold text-blue-800 mb-1">Chênh lệch quy mô dân số</h4>
-                    <p className="text-academic text-sm">Kinh ≈ 85,3% (≈82,09 triệu, 2019); một số DTTS >1 triệu, nhiều DTTS rất ít người.</p>
+                    <p className="text-academic text-sm">Kinh ≈ 85,3% (≈82,09 triệu, 2019); một số DTTS {">"} 1 triệu, nhiều DTTS rất ít người.</p>
                   </div>
                 </div>
               </div>
